@@ -1,10 +1,11 @@
 import React from 'react'
+import SignUpForm from '../../components/sign-up-form/sign-up-form.component'
 import './sign-up.styles.scss'
 
 const SignUp = () => {
 	return (
 		<div id='sign_up'>
-			<p>I will be the sign up page</p>
+			<SignUpForm />
 		</div>
 	)
 }
