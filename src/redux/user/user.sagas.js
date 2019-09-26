@@ -34,7 +34,6 @@ export function* signUp({ payload }) {
 			},
 		} = yield auth.signUp(payload)
 		user.token = token
-		console.log('37', user, '37')
 		yield put(signUpSuccess(user))
 	} catch (error) {
 		yield put(signUpFailure(error))

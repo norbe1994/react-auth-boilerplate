@@ -9,7 +9,9 @@ class Auth {
 		return axios
 			.post('/api/v1/users/signup', dto)
 			.then(response => response)
-			.catch(error => error)
+			.catch(error => {
+				throw new Error(error.message)
+			})
 	}
 }
 

@@ -65,7 +65,7 @@ const SignUpForm = ({ signUpStart, error, loading }) => {
 			) : null}
 
 			<div className='form-group'>
-				{error ? (
+				{error.message ? (
 					<div className='alert alert-danger' role='alert'>
 						{error.message}
 					</div>
