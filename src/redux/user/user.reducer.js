@@ -41,6 +41,10 @@ const userReducer = (state = INITIAL_STATE, action) => {
 					...state.loadingFlags,
 					login: false,
 				},
+				errors: {
+					...state.errors,
+					login: '',
+				},
 				user: payload,
 			}
 		case LOGIN_FAILURE:
@@ -69,6 +73,10 @@ const userReducer = (state = INITIAL_STATE, action) => {
 				loadingFlags: {
 					...state.loadingFlags,
 					signUp: false,
+				},
+				errors: {
+					...state.errors,
+					signUp: '',
 				},
 				user: payload,
 			}

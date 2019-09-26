@@ -59,16 +59,17 @@ const LoginForm = ({ loginStart, error, loading }) => {
 					value={formFields.password.value}
 				/>
 
+				<small id='loginMessage' className='form-text text-muted formMessage'>
+					Don't have an account?&nbsp;
+					<Link to='signup' className='formMessage__link'>
+						Sign up
+					</Link>
+				</small>
+
 				<button type='submit' className='btn btn-primary'>
 					Submit
 				</button>
 			</div>
-			<small id='loginMessage' className='form-text text-muted formMessage'>
-				Don't have an account?&nbsp;
-				<Link to='signup' className='formMessage__link'>
-					Sign up
-				</Link>
-			</small>
 		</form>
 	)
 }
