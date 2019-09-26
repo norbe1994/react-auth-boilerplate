@@ -1,9 +1,9 @@
 import userActionTypes from './user.types'
 
 const {
-	SIGN_IN_START,
-	SIGN_IN_SUCCESS,
-	SIGN_IN_FAILURE,
+	LOGIN_START,
+	LOGIN_SUCCESS,
+	LOGIN_FAILURE,
 	SIGN_UP_START,
 	SIGN_UP_SUCCESS,
 	SIGN_UP_FAILURE,
@@ -13,11 +13,11 @@ const {
 const INITIAL_STATE = {
 	user: null,
 	errors: {
-		signIn: '',
+		login: '',
 		signUp: '',
 	},
 	loadingFlags: {
-		signIn: false,
+		login: false,
 		signUp: false,
 	},
 }
@@ -26,33 +26,33 @@ const userReducer = (state = INITIAL_STATE, action) => {
 	const { type, payload } = action
 
 	switch (type) {
-		case SIGN_IN_START:
+		case LOGIN_START:
 			return {
 				...state,
 				loadingFlags: {
 					...state.loadingFlags,
-					signIn: true,
+					login: true,
 				},
 			}
-		case SIGN_IN_SUCCESS:
+		case LOGIN_SUCCESS:
 			return {
 				...state,
 				loadingFlags: {
 					...state.loadingFlags,
-					signIn: false,
+					login: false,
 				},
 				user: payload,
 			}
-		case SIGN_IN_FAILURE:
+		case LOGIN_FAILURE:
 			return {
 				...state,
 				loadingFlags: {
 					...state.loadingFlags,
-					signIn: false,
+					login: false,
 				},
 				errors: {
 					...state.errors,
-					signIn: payload,
+					login: payload,
 				},
 			}
 		case SIGN_UP_START:

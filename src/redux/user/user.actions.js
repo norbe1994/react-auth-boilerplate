@@ -1,26 +1,26 @@
 import userActionTypes from './user.types'
 
 const {
-	SIGN_IN_START,
-	SIGN_IN_SUCCESS,
-	SIGN_IN_FAILURE,
+	LOGIN_START,
+	LOGIN_SUCCESS,
+	LOGIN_FAILURE,
 	SIGN_UP_START,
 	SIGN_UP_SUCCESS,
 	SIGN_UP_FAILURE,
 	LOG_OUT,
 } = userActionTypes
 
-export const signInStart = signInDto => ({
-	type: SIGN_IN_START,
-	payload: signInDto,
+export const loginStart = loginDto => ({
+	type: LOGIN_START,
+	payload: loginDto,
 })
 
-export const signInSuccess = user => ({
-	type: SIGN_IN_SUCCESS,
+export const loginSuccess = user => ({
+	type: LOGIN_SUCCESS,
 	payload: user,
 })
-export const signInFailure = errorMessage => ({
-	type: SIGN_IN_FAILURE,
+export const loginFailure = errorMessage => ({
+	type: LOGIN_FAILURE,
 	payload: errorMessage,
 })
 export const signUpStart = signUpDto => ({

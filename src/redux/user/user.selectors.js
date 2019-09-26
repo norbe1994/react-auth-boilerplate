@@ -16,3 +16,13 @@ export const selectSignUpLoadingFlag = createSelector(
 	[selectUserReducer],
 	({ loadingFlags: { signUp } }) => signUp
 )
+
+export const selectLoginError = createSelector(
+	[selectUserReducer],
+	({ errors: { login } }) => login
+)
+
+export const selectLoginLoadingFlag = createSelector(
+	[selectUserReducer],
+	({ loadingFlags: { login } }) => login
+)

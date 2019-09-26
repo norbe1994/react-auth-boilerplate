@@ -4,3 +4,8 @@ export const signUpDto = {
 	password: '',
 	passwordConfirm: '',
 }
+
+export const loginDto = {
+	email: '',
+	password: '',
+}

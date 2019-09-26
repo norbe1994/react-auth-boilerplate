@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { validateFields, validateForm } from './validate-fields'
-import './sign-up-form.styles.scss'
 import { signUpStart } from '../../redux/user/user.actions'
 import { createStructuredSelector } from 'reselect'
 import {
@@ -9,6 +8,7 @@ import {
 	selectSignUpLoadingFlag,
 } from '../../redux/user/user.selectors'
 import clenDto from './clenDto'
+import './sign-up-form.styles.scss'
 
 const SignUpForm = ({ signUpStart, error, loading }) => {
 	const [formFields, setFormFields] = useState({
@@ -29,6 +29,8 @@ const SignUpForm = ({ signUpStart, error, loading }) => {
 			dirty: false,
 		},
 	})
+
+	// TODO: add error key to each form field object instead of having them on a separate object
 
 	const [formErrors, setFormErrors] = useState({
 		email: '',
