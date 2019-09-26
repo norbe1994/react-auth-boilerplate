@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { createStructuredSelector } from 'reselect'
 import {
 	selectLoginLoadingFlag,
@@ -62,6 +63,12 @@ const LoginForm = ({ loginStart, error, loading }) => {
 					Submit
 				</button>
 			</div>
+			<small id='loginMessage' className='form-text text-muted formMessage'>
+				Don't have an account?&nbsp;
+				<Link to='signup' className='formMessage__link'>
+					Sign up
+				</Link>
+			</small>
 		</form>
 	)
 }

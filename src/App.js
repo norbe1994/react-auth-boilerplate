@@ -20,7 +20,7 @@ const App = ({ user }) => {
 				<Route
 					exact
 					path='/'
-					render={() => (user ? <HomePage /> : <Redirect to='/signup' />)}
+					render={() => (user ? <HomePage /> : <Redirect to='/login' />)}
 				/>
 				<Route
 					exact
