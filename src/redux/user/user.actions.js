@@ -7,6 +7,7 @@ const {
 	SIGN_UP_START,
 	SIGN_UP_SUCCESS,
 	SIGN_UP_FAILURE,
+	LOG_OUT,
 } = userActionTypes
 
 export const signInStart = signInDto => ({
@@ -33,4 +34,7 @@ export const signUpSuccess = user => ({
 export const signUpFailure = errorMessage => ({
 	type: SIGN_UP_FAILURE,
 	payload: errorMessage,
+})
+export const logOut = () => ({
+	type: LOG_OUT,
 })

@@ -6,9 +6,9 @@ function validateEmail(email) {
 
 function validateName(name) {
 	const validNameRegex = /^[ñA-Za-z _]*[ñA-Za-zÀ-ÿ][ñA-Za-z _]*$/
-	if (name.length >= 8 && validNameRegex.test(name)) return ''
+	if (name.length >= 2 && validNameRegex.test(name)) return ''
 	else
-		return 'Name must be at least 8 characters long and contain only alphabetic values.'
+		return 'Name must be at least 2 characters long and contain only alphabetic values.'
 }
 
 function validatePassword(password) {

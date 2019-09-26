@@ -7,6 +7,7 @@ const {
 	SIGN_UP_START,
 	SIGN_UP_SUCCESS,
 	SIGN_UP_FAILURE,
+	LOG_OUT,
 } = userActionTypes
 
 const INITIAL_STATE = {
@@ -82,6 +83,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
 					...state.errors,
 					signUp: payload,
 				},
+			}
+
+		case LOG_OUT:
+			return {
+				...state,
+				user: null,
 			}
 
 		default:
