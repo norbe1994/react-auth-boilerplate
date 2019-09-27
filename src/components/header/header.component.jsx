@@ -1,26 +1,56 @@
 import React from 'react'
+import { compose } from 'redux'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './header.styles.scss'
 import { logOut } from '../../redux/user/user.actions'
 
-const Header = ({ user, logOut }) => {
+const Header = ({ user, logOut, history }) => {
+	const currentPath = history.location.pathname
+
+	const noAuth = (
+		<React.Fragment>
+			<li className='nav-item'>
+				<Link
+					className={`nav-link ${currentPath === '/signUp' ? 'active' : ''}`}
+					to='/signUp'
+				>
+					Sign Up
+				</Link>
+			</li>
+			<li className='nav-item'>
+				<Link
+					className={`nav-link ${currentPath === '/login' ? 'active' : ''}`}
+					to='/login'
+				>
+					Login
+				</Link>
+			</li>
+		</React.Fragment>
+	)
+
+	const withAuth = (
+		<React.Fragment>
+			<li className='nav-item'>
+				<Link
+					className={`nav-link ${currentPath === '/' ? 'active' : ''}`}
+					to='/'
+				>
+					Me
+				</Link>
+			</li>
+			<li className='nav-item'>
+				<Link className='nav-link' to='/' onClick={logOut}>
+					Logout
+				</Link>
+			</li>
+		</React.Fragment>
+	)
+
 	return (
 		<nav id='header'>
-			<h3>{user ? user.name : 'no user'}</h3>
-			{user ? (
-				<React.Fragment>
-					<Link to='/'>Home</Link>
-					<Link to='/' onClick={logOut}>
-						Logout
-					</Link>
-				</React.Fragment>
-			) : (
-				<React.Fragment>
-					<Link to='/signUp'>Sign Up</Link>
-					<Link to='/login'>Login</Link>
-				</React.Fragment>
-			)}
+			<ul className='nav nav-tabs'>{user ? withAuth : noAuth}</ul>
 		</nav>
 	)
 }
@@ -29,7 +59,10 @@ const mapDispatchToProps = dispatch => ({
 	logOut: () => dispatch(logOut()),
 })
 
-export default connect(
-	null,
-	mapDispatchToProps
+export default compose(
+	connect(
+		null,
+		mapDispatchToProps
+	),
+	withRouter
 )(Header)

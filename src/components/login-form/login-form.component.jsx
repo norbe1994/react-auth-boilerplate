@@ -26,12 +26,6 @@ const LoginForm = ({ loginStart, error, loading }) => {
 
 	return (
 		<form id='sign_in_form' onSubmit={handleSubmit}>
-			{loading ? (
-				<div className='spinner-border' role='status'>
-					<span className='sr-only'>Loading...</span>
-				</div>
-			) : null}
-
 			<div className='form-group'>
 				{error.message ? (
 					<div className='alert alert-danger' role='alert'>
@@ -70,6 +64,11 @@ const LoginForm = ({ loginStart, error, loading }) => {
 					Submit
 				</button>
 			</div>
+			{loading ? (
+				<div className='spinner-border' role='status'>
+					<span className='sr-only'>Loading...</span>
+				</div>
+			) : null}
 		</form>
 	)
 }

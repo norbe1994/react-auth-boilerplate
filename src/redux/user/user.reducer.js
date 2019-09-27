@@ -44,6 +44,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
 				errors: {
 					...state.errors,
 					login: '',
+					signUp: '',
 				},
 				user: payload,
 			}
@@ -76,6 +77,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
 				},
 				errors: {
 					...state.errors,
+					login: '',
 					signUp: '',
 				},
 				user: payload,
